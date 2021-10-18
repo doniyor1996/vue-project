@@ -24,7 +24,52 @@
       </div>
     </div>
     <div>
-      {{ this.users }}
+      <div class="form-group mb-3">
+        <label>
+          Выделить имя:
+          <input v-model="filter.name" placeholder="Выделить имена" />
+        </label>
+      </div>
+      <div class="form-group mb-3">
+        <label>
+          Выделить возраст:
+          <input
+            v-model="filter.age"
+            placeholder="Выделить возраст"
+            type="number"
+          />
+        </label>
+      </div>
+    </div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Возраст</th>
+            <th scope="col">День рожд</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(user, index) in users" :key="index">
+            <th scope="row">{{ index + 1 }} |</th>
+            <td>
+              {{ user.name }}
+              <span
+                v-if="filter.name.length && user.name.indexOf(filter.name) > -1"
+                >✔</span
+              >
+            </td>
+            <td>
+              {{ user.age }}
+              <span v-if="user.age === +filter.age">✔</span>
+              <span v-else-if="filter.age > 0">🚫</span>
+            </td>
+            <td>{{ user.birthday }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -33,7 +78,18 @@ export default {
   name: "MyInput",
   data() {
     return {
-      users: [],
+      filter: {
+        age: null,
+        name: "",
+      },
+      users: [
+        { name: "Тошполат", age: 23, birthday: "2021-10-18" },
+        { name: "Шомил", age: 22, birthday: "2021-10-04" },
+        { name: "Хошим", age: 23, birthday: "2020-10-18" },
+        { name: "Козим", age: 26, birthday: "2020-12-04" },
+        { name: "Косим", age: 23, birthday: "2021-10-05" },
+        { name: "Улук", age: 22, birthday: "2021-10-04" },
+      ],
       name: "",
       age: "",
       birthday: "",
