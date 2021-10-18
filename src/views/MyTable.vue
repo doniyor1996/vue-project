@@ -75,7 +75,7 @@
 </template>
 <script>
 export default {
-  name: "MyInput",
+  name: "MyTable",
   data() {
     return {
       filter: {
