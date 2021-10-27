@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "element",
+  name: "Element",
 };
 </script>
 
@@ -66,14 +66,14 @@ export default {
   position: absolute;
   width: 230px;
   height: 400px;
-  background: url("../img/Shrek.jpg") center no-repeat;
+  background: url("../../img/Shrek.jpg") center no-repeat;
   background-size: cover;
   top: 140px;
   left: 30px;
   border-radius: 20px;
 }
 .el-main {
-  background-image: url("../img/bacgr.webp");
+  background-image: url("../../img/bacgr.webp");
 
   color: var(--el-text-color-primary);
   text-align: center;

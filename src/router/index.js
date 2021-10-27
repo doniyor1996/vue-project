@@ -63,12 +63,30 @@ const routes = [
   },
   {
     path: "/element",
-    name: "Element-plus",
+    components: {
+      default: () => import("@/views/element-plus/index"),
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/element.vue"),
+    children: [
+      {
+        path: "",
+        name: "element-index",
+        component: () => import("@/views/element-plus/Element"),
+      },
+      {
+        path: "buttons",
+        name: "buttons",
+        component: () => import("@/views/element-plus/Buttons"),
+      },
+      {
+        path: "with-props/:name/:id",
+        name: "with-props",
+        props: true,
+        component: () => import("@/views/element-plus/WithProps"),
+      },
+    ],
   },
 ];
 
