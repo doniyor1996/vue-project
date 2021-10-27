@@ -6,7 +6,8 @@
     <router-link to="/my-table">My table</router-link> |
     <router-link to="/my-form">My form</router-link> |
     <router-link to="/my-components">My components</router-link> |
-    <router-link to="/users">Users component</router-link>
+    <router-link to="/users">Users component</router-link> |
+    <router-link to="/element">Element-plus</router-link>
   </div>
   <router-view />
 </template>
