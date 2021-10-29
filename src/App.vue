@@ -8,7 +8,8 @@
     <router-link to="/my-components">My components</router-link> |
     <router-link to="/users">Users component</router-link> |
     <router-link to="/element">Element-plus</router-link> |
-    <router-link to="/E-plus">E-plus forms</router-link>
+    <router-link to="/E-plus">E-plus forms</router-link> |
+    <router-link to="/axios">Axios</router-link>
   </div>
   <router-view />
 </template>

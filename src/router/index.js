@@ -62,6 +62,15 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/MyComponents.vue"),
   },
   {
+    path: "/axios",
+    name: "axios",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Axios.vue"),
+  },
+  {
     path: "/element",
     components: {
       default: () => import("@/views/element-plus/index"),
