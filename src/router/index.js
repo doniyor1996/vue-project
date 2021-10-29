@@ -86,6 +86,35 @@ const routes = [
         props: true,
         component: () => import("@/views/element-plus/WithProps"),
       },
+      {
+        path: "color/:use",
+        name: "color",
+        props: true,
+        component: () => import("@/views/element-plus/Color"),
+      },
+    ],
+  },
+  {
+    path: "/e-plus",
+    components: {
+      default: () => import("@/views/element-plus-form/index"),
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    children: [
+      {
+        path: "",
+        name: "input",
+        props: true,
+        component: () => import("@/views/element-plus-form/Input"),
+      },
+      {
+        path: "checkbox",
+        name: "checkbox",
+        props: true,
+        component: () => import("@/views/element-plus-form/Checkbox"),
+      },
     ],
   },
 ];
