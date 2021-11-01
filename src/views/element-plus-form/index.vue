@@ -19,7 +19,7 @@
 
   <el-col
     style="background-color: #42b983; width: 100%; height: 100vh"
-    :md="18"
+    :md="21"
   >
     <router-view />
   </el-col>
