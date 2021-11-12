@@ -1,55 +1,103 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5">
-        <div class="form-group">
-          <div class="block">
-            <label for="fiz">fiz.lico</label>
-            <input
-              v-model="check"
-              name="check"
-              type="radio"
-              id="fiz"
-              value="fiz"
-            />
-          </div>
-          <div class="block2">
-            <label for="yur">yur.lico</label>
-            <input
-              v-model="check"
-              name="check"
-              type="radio"
-              id="yur"
-              value="yur"
-            />
-          </div>
-          <label for="name">name</label>
-          <input type="text" id="name" class="form-control" /><br />
-          <br />
-          <label for="email">email</label>
-          <input type="text" id="email" class="form-control" /><br />
-          <br />
-          <div v-if="check == 'fiz'">
-            <label for="number">number</label>
-            <input type="number" id="number" class="form-control" />
-          </div>
+  <el-container style="width: 400px; margin: 0 auto; height: 100vh">
+    <el-main>
+      <h1 class="stol">4</h1>
+      <div class="menu">
+        <div class="zavtraki">
+          <header class="zavtraki-close">
+            <img src="../img/zavtraki.svg" alt="" />
+            <div class="zavtraki-text">
+              <h2 class="zavtraki-title">Завтраки</h2>
+              <p class="zavtraki-p">9 позиции</p>
+            </div>
+          </header>
         </div>
-        <div v-if="check == 'yur'" class="blockYur form-group">
-          <label for="company">company</label>
-          <input class="form-control" type="text" name="company" id="company" />
+
+        <div class="zavtraki">
+          <header class="zavtraki-close">
+            <img src="../img/zavtraki.svg" alt="" />
+            <div class="zavtraki-text">
+              <h2 class="zavtraki-title">Завтраки</h2>
+              <p class="zavtraki-p">9 позиции</p>
+            </div>
+          </header>
+        </div>
+
+        <div class="zavtraki">
+          <header class="zavtraki-close">
+            <img src="../img/zavtraki.svg" alt="" />
+            <div class="zavtraki-text">
+              <h2 class="zavtraki-title">Завтраки</h2>
+              <p class="zavtraki-p">9 позиции</p>
+            </div>
+          </header>
         </div>
       </div>
-    </div>
-  </div>
+    </el-main>
+    <el-footer>Footer</el-footer>
+  </el-container>
 </template>
-<script>
-export default {
-  name: "MyForm",
-  data() {
-    return {
-      check: "fiz",
-    };
-  },
-  methods: {},
-};
-</script>
+
+<script></script>
+
+<style scoped>
+.el-container {
+  background: url("../img/kuxnya.jpg") no-repeat;
+  background-size: cover;
+}
+
+.el-main {
+  padding: 0;
+  color: var(--el-text-color-primary);
+  text-align: center;
+  line-height: 160px;
+  position: relative;
+}
+
+.el-footer {
+  background-color: #b3c0d1;
+  color: var(--el-text-color-primary);
+  text-align: center;
+  line-height: 60px;
+}
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.menu {
+  position: absolute;
+  width: 100%;
+  top: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.zavtraki-close {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  height: 100px;
+  min-height: 90px;
+  width: 100%;
+  z-index: 1;
+  padding: 10px 30px 10px 20px;
+  border-bottom: 2px solid #b3c0d1;
+  /*background: url(/icon-arrow-down.svg) calc(100% - 30px) center no-repeat;*/
+}
+
+.zavtraki-text {
+  height: 100px;
+  line-height: 5px;
+  margin: 20px 10px;
+}
+img {
+  margin-top: -55px;
+}
+.zavtraki-title {
+  font-size: 25px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+}
+</style>

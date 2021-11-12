@@ -10,7 +10,20 @@
   <div>My name is: {{ name }}</div>
   <button @click="setMyName('Islom')">Islom</button>
   <button @click="setMyName('Don')">Don</button>
+  <br />
+  <hr />
+  <br />
+
+  <button class="btn-primary">
+    <slot>ldlddll</slot>
+  </button>
+  <todo-button>
+    <!-- Добавляем иконку Font Awesome -->
+    <i class="fas fa-plus"></i>
+    Добавить todo
+  </todo-button>
 </template>
+
 <script>
 export default {
   name: "About",

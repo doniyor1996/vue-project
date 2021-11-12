@@ -1,6 +1,6 @@
 <template>
   <el-col
-    style="background-color: blueviolet; width: 100%; height: 100vh"
+    style="border-right: 3px solid #b3c0d1; width: 100%; height: 100vh"
     :md="12"
   >
     <el-button
@@ -10,17 +10,21 @@
       round
       >{{ showUsers ? "Скрыт    " : "Пользователи" }}</el-button
     >
-    <div v-show="showUsers" class="users">
-      <ul>
-        <li v-for="user in users" :key="user.age">
-          <span>{{ user.name }}</span>
-          <span>{{ user.age }}</span>
-          <span>{{ user.birthday }}</span>
-        </li>
-      </ul>
+    <div>
+      <el-table
+        v-show="showUsers"
+        class="users"
+        :data="users"
+        style="width: 100%"
+      >
+        <el-table-column type="index" width="50" />
+        <el-table-column prop="name" label="Name" width="180" />
+        <el-table-column prop="age" label="Age" width="180" />
+        <el-table-column prop="birthday" label="Birthday" />
+      </el-table>
     </div>
   </el-col>
-  <el-col style="background-color: brown; width: 100%; height: 100vh" :md="12">
+  <el-col style="width: 100%; height: 100vh" :md="12">
     <el-button
       class="but"
       v-on:click="showCars = !showCars"
@@ -29,13 +33,17 @@
       >{{ showCars ? "Скрыт" : "Авто" }}</el-button
     >
     <div v-show="showCars" class="cars">
-      <ul>
-        <li v-for="cars in product" :key="cars.year">
-          <span>{{ cars.prName }}</span>
-          <span>{{ cars.year }}</span>
-          <span>{{ cars.color }}</span>
-        </li>
-      </ul>
+      <el-table
+        v-show="showCars"
+        class="users"
+        :data="product"
+        style="width: 100%"
+      >
+        <el-table-column type="index" width="50" />
+        <el-table-column prop="prName" label="Name" width="180" />
+        <el-table-column prop="year" label="Year" width="180" />
+        <el-table-column prop="color" label="Color" />
+      </el-table>
     </div>
   </el-col>
 </template>
@@ -64,8 +72,13 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+}
+
 .but {
   margin-top: 20px;
+  margin-bottom: 20px;
   width: 160px;
 }
 </style>
