@@ -30,10 +30,11 @@
     </div>
   </el-col>
   <el-col style="width: 100%; height: 100vh" :md="12">
+    <p>{{ reloaded ? "Данные обновлены" : "Данные не обновлены" }}</p>
     <el-button
       class="but"
       v-on:click="showCars = !showCars"
-      type="primary"
+      type="warning"
       round
       >{{ showCars ? "Скрыть" : "Авто" }}</el-button
     >
@@ -50,6 +51,10 @@
         <el-table-column prop="color" label="Color" />
       </el-table>
     </div>
+    <p>Ср. знач. age: {{ avg_year }}</p>
+    <el-button class="but" @click="getProduct(2)" type="primary" round
+      >Обновить</el-button
+    >
   </el-col>
 </template>
 
@@ -73,6 +78,13 @@ export default {
       });
       return sum / this.users.length;
     },
+    avg_year() {
+      let sum = 0;
+      this.product.forEach((item) => {
+        sum += +item.year;
+      });
+      return sum / this.product.length;
+    },
   },
   watch: {
     users(newValue, oldValue) {
@@ -82,8 +94,12 @@ export default {
     },
   },
   mounted() {
-    this.$http.get("/product.json").then(({ data }) => {
+    this.$http.get("/product2.json").then(({ data }) => {
       this.product = data;
+    });
+    this.getProduct();
+    this.$http.get("/users.json").then(({ data }) => {
+      this.users = data;
     });
     this.getUsers();
   },
@@ -91,6 +107,11 @@ export default {
     getUsers(n = "") {
       this.$http.get(`/users${n}.json`).then(({ data }) => {
         this.users = data;
+      });
+    },
+    getProduct(n = "") {
+      this.$http.get(`/product${n}.json`).then(({ data }) => {
+        this.product = data;
       });
     },
   },
